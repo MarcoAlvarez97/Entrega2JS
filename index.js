@@ -2,7 +2,7 @@ const pizzas = [
   {
     id: 1,
     nombre: "pizza de Muzzarella",
-    precio: 500,
+    precio: 700,
     ingredientes: ["Muzzarella", "Tomate", "Aceitunas"],
   },
 
@@ -36,7 +36,7 @@ const pizzas = [
   {
     id: 5,
     nombre: "pizza Especial",
-    precio: 1000,
+    precio: 1600,
     ingredientes: ["Muzzarella", "Tomate", "Aceitunas", "Anchoas", "Cebolla"],
   },
 
@@ -47,3 +47,27 @@ const pizzas = [
     ingredientes: ["Muzzarella", "Tomate", "Anana"],
   },
 ];
+
+// A) las pizzas que tengan un id impar
+
+let pizzasImpares = pizzas.filter((pizza) => pizza.id % 2 !== 0);
+console.log("Pizzas con id impar:");
+console.log(pizzasImpares);
+
+// B) Responder: ¿Hay alguna pizza que valga menos de $600?
+
+const hayPizzaBarata = pizzas.some((pizza) => pizza.precio < 600);
+console.log("Hay alguna pizza que valga menos de $600:", hayPizzaBarata);
+
+// C) El nombre de cada pizza con su respectivo precio.
+console.log("Nombre de cada pizza con su respectivo precio:");
+pizzas.forEach((pizza) =>
+  console.log(`La pizza ${pizza.nombre}, tiene un valor de $${pizza.precio}`)
+);
+
+// D) Todos los ingredientes de cada pizza.
+console.log("Ingredientes de cada pizza:");
+pizzas.forEach((pizza) => {
+  console.log(`La pizza ${pizza.nombre} tiene los siguientes ingredientes:`);
+  pizza.ingredientes.forEach((ingrediente) => console.log(ingrediente));
+});
